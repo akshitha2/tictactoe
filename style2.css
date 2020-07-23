@@ -1,0 +1,148 @@
+/* latin */
+@font-face {
+    font-family: 'Fascinate Inline';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Fascinate Inline'),local('Times New Roman') ,local('Roboto'),local('FascinateInline-Regular')
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  
+.container{
+    width: 600px;
+    height: 600px;
+    display: block;
+    margin: 20px auto;
+    position: relative;
+}
+
+#cvs{
+    position: absolute;
+    border: 5px solid #d2251b;
+    
+}
+
+.options{
+    position: relative;
+    width: 600px;
+    height: 600px;
+    box-sizing:border-box;
+}
+
+.options h1{
+    text-align: center;
+    font-size: 80px;
+    font-family:'Facisnate Inline', cursive;
+    color: #c96229;
+    margin: 50px 0 50px 0;
+}
+
+.options h2{
+    font-family: 'Times New Roman', 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
+    text-align: center;
+    color: #953fab;
+    font-weight: italic;
+}
+
+.options div{
+    display: inline-block;
+}
+
+.options .computer, .x{
+    font-family: 'Roboto', 'Arial Narrow', Arial, sans-serif;
+    padding: 5px;
+    background-color: #FFF;
+    color: #f45234;
+    font-size: 35px;
+    border-radius: 5px;
+    margin-left: 80px;
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #df8f2c ;
+}
+
+.options .human, .o{
+    font-family: 'Roboto', 'Arial Narrow', Arial, sans-serif;
+    padding: 5px;
+    background-color: #FFF;
+    color: #f45234;
+    font-size: 35px;
+    border-radius: 5px;
+    margin-left: 20px;
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #df8f2c ;
+}
+
+.options .human:hover, .computer:hover, .x:hover, .o:hover{
+    background-color: #d6d664;
+    color: #FFFFFF;
+}
+.options .play{
+    font-family: 'Tahoma', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2em;
+    width: 70px;
+    display: block;
+    margin: 25px auto;
+    border-radius: 5px;
+    border: 1px solid #e17272;
+    text-align: center;
+    padding: 10px;
+    background-color: #cc9653;
+    color: #FFF;
+    cursor: pointer;
+    transition: 100ms width ease-in;
+}
+.options .play:hover{
+    width: 110px;
+}
+
+.active{
+    background-color: #ec9578 !important;
+    color: #FFF !important;
+}
+
+.hide{
+    display: none;
+}
+
+.gameover{
+    position: relative;
+    width: 650px;
+    height: 650px;
+    background-color: white;
+}
+.gameover h1{
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Fascinate Inline', cursive;
+    color: #9948df;
+    margin: 50px 0 20px 0;
+}
+
+.gameover .winner-img{
+    display: block;
+    margin: 40px auto;
+}
+
+.gameover .play{
+    font-family: 'Times New Roman', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1em;
+    width: 200px;
+    display: block;
+    margin: 25px auto;
+    border-radius: 10px;
+    border: 3px solid #69d650;
+    text-align: center;
+    padding: 10px;
+    background-color: #fff;
+    color: #69d650 ;
+    cursor: pointer;
+    transition: 100ms width ease-in;
+}
+.gameover .play:hover{
+    width: 200px;
+}
