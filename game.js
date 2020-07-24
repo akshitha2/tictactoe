@@ -98,17 +98,33 @@ function init(player, OPPONENT){
 
         if( OPPONENT == "computer"){
             // get id of space using minimax algorithm
-            let id = minimax( gameData, player.computer ).id;
-
+            let id;
+            if(Math.random()<diff) {
+                id = minimax(gameData, player.computer).id;
+            }
+            else {
+                let EMPTY_SPACES = getEmptySpaces(gameData);
+                id = EMPTY_SPACES[Math.floor(Math.random() * EMPTY_SPACES.length)];
+            }
             // store the player's move to gameData
             gameData[id] = player.computer;
-            
+
             // get i and j of space
             let space = getIJ(id);
 
             // draw the move on board
             drawOnBoard(player.computer, space.i, space.j);
 
+            // if(eve=="yes"){
+            //     // ctx.save();
+            //     let pq = minimax(gameData,player.computer).id;
+            //     let noob = getIJ(pq);
+            //     // drawOnBoard(player.man,noob.i,noob.j);
+            //     setInterval(function () {
+            //         drawOnBoard(player.man,noob.i,noob.j);
+            //     },2000);
+            //     // ctx.restore();
+            // }
             // Check if the play wins
             if(isWinner(gameData, player.computer)){
                 showGameOver(player.computer);
