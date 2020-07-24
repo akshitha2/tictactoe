@@ -1,4 +1,4 @@
-function init(player, OPPONENT){
+function init(player, OPPONENT, diff){
     // SELECT CANAVS
     const canvas = document.getElementById("cvs");
     const ctx = canvas.getContext("2d");
