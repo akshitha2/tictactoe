@@ -249,7 +249,7 @@ function init(player, OPPONENT, diff){
                 ctx.moveTo(rep.j*SPACE_SIZE+c,rep.i*SPACE_SIZE+c);
                 ctx.lineTo(pre.j*SPACE_SIZE+c,pre.i*SPACE_SIZE+c);
                 ctx.lineWidth=20;
-                ctx.strokeStyle='#fFF500';
+                ctx.strokeStyle='rgba(255,255,0,0.7)';
                 ctx.lineCap="round";
                 ctx.stroke();
                 return true;
