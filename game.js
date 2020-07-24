@@ -83,8 +83,12 @@ function init(player, OPPONENT, diff){
         drawOnBoard(currentPlayer, i, j);
 
         // Check if the play wins
-        if(isWinner(gameData, currentPlayer)){
-            showGameOver(currentPlayer);
+        let tyy=true;
+        if(isWinner(gameData, currentPlayer,tyy)){
+            setTimeout(function () {
+                showGameOver(currentPlayer);
+            },1000);
+
             GAME_OVER = true;
             return;
         }
@@ -114,20 +118,12 @@ function init(player, OPPONENT, diff){
 
             // draw the move on board
             drawOnBoard(player.computer, space.i, space.j);
-
-            // if(eve=="yes"){
-            //     // ctx.save();
-            //     let pq = minimax(gameData,player.computer).id;
-            //     let noob = getIJ(pq);
-            //     // drawOnBoard(player.man,noob.i,noob.j);
-            //     setInterval(function () {
-            //         drawOnBoard(player.man,noob.i,noob.j);
-            //     },2000);
-            //     // ctx.restore();
-            // }
+            
             // Check if the play wins
-            if(isWinner(gameData, player.computer)){
-                showGameOver(player.computer);
+            if(isWinner(gameData, player.computer,tyy)){
+                setTimeout(function () {
+                    showGameOver(player.computer);
+                },1000);
                 GAME_OVER = true;
                 return;
             }
@@ -144,12 +140,12 @@ function init(player, OPPONENT, diff){
         }
 
     });
-
+    let ter = false;
     // MINIMAX
-    function minimax(gameData, PLAYER){
+    function minimax(gameData, PLAYER,ter){
         // BASE
-        if( isWinner(gameData, player.computer) ) return { evaluation : +10 };
-        if( isWinner(gameData, player.man)      ) return { evaluation : -10 };
+        if( isWinner(gameData, player.computer,ter) ) return { evaluation : +10 };
+        if( isWinner(gameData, player.man,ter)      ) return { evaluation : -10 };
         if( isTie(gameData)                     ) return { evaluation : 0 };
 
         // LOOK FOR EMTY SPACES
@@ -174,9 +170,9 @@ function init(player, OPPONENT, diff){
             move.id = id;
             // THE MOVE EVALUATION
             if( PLAYER == player.computer){
-                move.evaluation = minimax(gameData, player.man).evaluation;
+                move.evaluation = minimax(gameData, player.man,ter).evaluation;
             }else{
-                move.evaluation = minimax(gameData, player.computer).evaluation;
+                move.evaluation = minimax(gameData, player.computer,ter).evaluation;
             }
 
             // RESTORE SPACE
@@ -233,7 +229,7 @@ function init(player, OPPONENT, diff){
     }
 
     // check for a winner
-    function isWinner(gameData, player){
+    function isWinner(gameData, player,ter){
         for(let i = 0; i < COMBOS.length; i++){
             let won = true;
 
@@ -241,10 +237,24 @@ function init(player, OPPONENT, diff){
                 let id = COMBOS[i][j];
                 won = gameData[id] == player && won;
             }
-
+            if(won && !ter)return true;
             if(won){
+                let id = COMBOS[i][0];
+                let gf = COMBOS[i][2];
+                // alert(id);
+                // alert(gf);
+                let rep = getIJ(id);
+                let pre = getIJ(gf);
+                let c=100;
+                ctx.moveTo(rep.j*SPACE_SIZE+c,rep.i*SPACE_SIZE+c);
+                ctx.lineTo(pre.j*SPACE_SIZE+c,pre.i*SPACE_SIZE+c);
+                ctx.lineWidth=20;
+                ctx.strokeStyle='#fFF500';
+                ctx.lineCap="round";
+                ctx.stroke();
                 return true;
             }
+
         }
         return false;
     }

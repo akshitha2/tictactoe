@@ -7,8 +7,7 @@ const humanBtn = document.querySelector(".human");
 const xBtn = document.querySelector(".x");
 const oBtn = document.querySelector(".o");
 const playBtn = document.querySelector(".play");
-// const astyes = document.querySelector(".boty");
-// const astno = document.querySelector(".botn");
+
 
 const l1 = document.querySelector(".lev1");
 const l2 = document.querySelector(".lev2");
@@ -21,11 +20,6 @@ const gameOverElement = document.querySelector(".gameover");
 const player = new Object;
 let OPPONENT;
 
-
-// let eve;
-// eve="yes";
-// switchActive(astno,astyes);
-//
 player.man = "X";
 player.computer = "O";
 player.human = "O";
@@ -82,15 +76,7 @@ humanBtn.addEventListener("click", function(){
     OPPONENT = "human";
     switchActive(computerBtn, humanBtn);
 });
-// astyes.addEventListener("click",function () {
-//     eve = "yes";
-//     switchActive(astno,astyes);
-// });
-//
-// astno.addEventListener("click",function () {
-//     eve = "no";
-//     switchActive(astyes,astno);
-// });
+
 playBtn.addEventListener("click", function(){
     if( !OPPONENT){
         computerBtn.style.backgroundColor = "#f0e3df";
@@ -104,7 +90,7 @@ playBtn.addEventListener("click", function(){
         return;
     }
     
-    init(player, OPPONENT, diff);
+    init(player, OPPONENT,diff);
     options.classList.add("hide");
 });
 
